@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Child from "./Child.js";
 
 class App extends Component {
   constructor() {
@@ -10,6 +11,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Child number={this.state.initialNumber * 2} />
+        <Child number={this.state.initialNumber * 4} />
+        <Child number={this.state.initialNumber * 6} />
       </div>
     )
   }
