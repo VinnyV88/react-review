@@ -1,31 +1,51 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "./Button";
+import Image from "./Image";
 import Display from "./Display";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      showLorem: false
+      clickCounter: 0
     };
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
-  handleClick() {
-    this.setState({ showLorem: !this.state.showLorem });
+  handleClick = () => {
+    this.setState(prevState => ({
+      clickCounter: prevState.clickCounter + 1
+    }) 
+    );
   }
-  renderLorem() {
-    if (this.state.showLorem) {
-      return <Display count={this.state.count} />;
-    }
+
+  renderEasterEggs(clicks) {
+    return (
+      <div>
+        {clicks >= 10 &&
+          <div>
+            <h1>Surprise!</h1>
+            <Image source="easteregg.png" />
+          </div>
+        }
+        {clicks >= 20 &&
+          <Image source="silveregg.jpg" />
+        }
+        {clicks >= 30 &&
+          <Image source="goldegg.jpg" />
+        }
+      </div>
+   );
   }
+
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.handleClick}>
-          Show Lorem
+        <Button type="default" onClick={this.handleClick}>
+          Happy Easter
         </Button>
-        {this.renderLorem()}
+        <Display clicks={this.state.clickCounter} />
+        {this.renderEasterEggs(this.state.clickCounter)}
       </div>
     );
   }
