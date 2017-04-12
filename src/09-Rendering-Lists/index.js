@@ -52,10 +52,17 @@ class App extends Component {
       ]
     };
   }
+  filterData() {
+  let newArray = this.state.data.filter(subject => {
+    return (subject.id % 2 !== 0);
+  })
+  return newArray;
+}
+
   render() {
     return (
       <ul>
-        {this.state.data.map(item => {
+        {this.filterData().map(item => {
           return (
             <li key={item.id}>
               {item.text}

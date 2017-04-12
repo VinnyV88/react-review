@@ -7,8 +7,8 @@ import ReactDOM from 'react-dom';
 // import App from './05-Class-Components/Unsolved';
 // import App from './06-Passing-Props/Unsolved';
 // import App from './07-Events';
-import App from './08-Conditional-Rendering';
-// import App from './09-Rendering-Lists';
+// import App from './08-Conditional-Rendering';
+import App from './09-Rendering-Lists';
 import './index.css';
 
 ReactDOM.render(
